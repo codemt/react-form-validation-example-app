@@ -41,16 +41,18 @@ function App() {
   }
   return (
     <div className="App">    
-      <form onSubmit={handleSubmit(onSubmit)}>
-      
-        <input ref={register({required:true})}  name="income_head" type="text" onChange={handleInputChange} placeholder="Enter Income Head" /><br />
+        <div class="errors">
         <p style={{color:'red'}}>{errors.income_head && "Income Head is required"}</p>
-        <input ref={register({required:true})}  name="amount" type="text"  onChange={handleInputChange} placeholder="Amount" /><br />
         <p style={{color:'red'}}>{errors.amount && "Amount  is required"}</p>
-        <input ref={register({required:true})}  name="date"  onChange={handleInputChange} type="date" /><br />
         <p style={{color:'red'}}>{errors.date && "Date  is required"}</p>
+        </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input ref={register({required:true})}  name="income_head" type="text" onChange={handleInputChange} placeholder="Enter Income Head" /><br />  
+        <input ref={register({required:true})}  name="amount" type="text"  onChange={handleInputChange} placeholder="Amount" /><br />
+        <input ref={register({required:true})}  name="date"  onChange={handleInputChange} type="date" /><br />
         <input type="submit" value="submit"/>
       </form>
+     
     </div>
   );
 }
